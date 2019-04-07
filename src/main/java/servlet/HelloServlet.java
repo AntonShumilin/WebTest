@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(
         name = "MyServlet",
         urlPatterns = {"/hello"}
-    )
+)
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         ServletOutputStream out = resp.getOutputStream();
         out.write("AC/DC".getBytes());
         out.flush();
@@ -25,4 +27,3 @@ public class HelloServlet extends HttpServlet {
     }
 
 }
-
